@@ -9,3 +9,7 @@ a{
 a:hover{
   color:orchid;
 }
+
+*{
+  box-sizing: border-box;
+}
