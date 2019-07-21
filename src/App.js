@@ -16,6 +16,7 @@ class App extends React.Component {
   }
   UnsubscribeFromAuth = null;
 
+  //subscribe to the user auth login
   componentDidMount() {
     this.UnsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -29,9 +30,6 @@ class App extends React.Component {
                 ...snapshot.data()
               }
             },
-            () => {
-              console.log(this.state);
-            }
           );
         });
       } else {
@@ -39,7 +37,7 @@ class App extends React.Component {
       }
     });
   }
-
+//unsubscribe from the login
   componentWillUnmount() {
     this.UnsubscribeFromAuth();
   }
