@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import HomePage from "./pages/homepage/homepage.component";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import ShopPage from "./pages/Shop/shoppage.component";
 import Header from "./components/header/header.component";
 import SignInSignUpPage from "./pages/signin-signup/signin-signup.component";
@@ -21,15 +21,12 @@ class App extends React.Component {
 
         userRef.onSnapshot(snapshot => {
           setCurrentUser({
-            currentUser: {
-              id: snapshot.id,
-              ...snapshot.data()
-            }
+            id: snapshot.id,
+            ...snapshot.data()
           });
         });
-      } else {
-        setCurrentUser(userAuth);
       }
+      setCurrentUser(userAuth);
     });
   }
   //unsubscribe from the login
@@ -44,18 +41,32 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          <Route path="/signin" component={SignInSignUpPage} />
+          <Route
+            exact
+            path="/signin"
+            render={() =>
+              this.props.currentUser 
+              ? 
+              ( <Redirect to="/" /> ) 
+              : 
+              ( <SignInSignUpPage /> )
+            }
+          />
         </Switch>
       </div>
     );
   }
 }
 
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+});
+
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(App);
