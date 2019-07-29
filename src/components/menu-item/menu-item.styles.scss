@@ -1,8 +1,8 @@
 .menu-item {
   min-width: 30%;
-  height: 360px;
-  display: flex;
+  height: 240px;
   flex: 1 1 auto;
+  display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid black;
@@ -23,7 +23,7 @@
   }
 
   &.large {
-    height: 480px;
+    height: 380px;
   }
 
   &:first-child {
