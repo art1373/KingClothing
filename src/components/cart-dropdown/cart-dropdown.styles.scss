@@ -10,6 +10,9 @@
   top: 90px;
   right: 40px;
   z-index: 5;
+  ::-webkit-scrollbar { 
+    display: none; 
+}
 
   .cart-items {
     height: 240px;
@@ -18,6 +21,10 @@
     overflow: scroll;
   }
 
+  .empty-message {
+    font-size: 18px;
+    margin: 15px auto;
+  }
   button {
     margin-top: auto;
   }
