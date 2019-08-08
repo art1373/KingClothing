@@ -8,3 +8,6 @@ Technologies Used :
 #Redux-saga
 #GraphQL
 #React-Hooks
+#React-Router
+#Context API
+#Apollo
