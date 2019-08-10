@@ -41,6 +41,10 @@
     background-position: center;
   }
 
+  @media screen and (max-width: 800px) {
+    height: 200px;
+  }
+  
   .content {
     height: 90px;
     padding: 0 25px;
