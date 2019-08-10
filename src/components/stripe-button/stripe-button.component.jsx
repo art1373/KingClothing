@@ -7,7 +7,7 @@ const StripeCheckoutButton = ({ price }) => {
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_QdwbCwJOzw56vSwuGFOi100W00DIj30Q9P";
   const onToken = token => {
-  Swal.fire("Payment Succesful");
+    Swal.fire("Payment successful", "Thank You for Your Purchase", "success");
   };
 
   return (
