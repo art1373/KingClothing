@@ -1,4 +1,4 @@
-## E-Commerce Project With Responsive Design and PWA Approved by Lighthouse (In progress)
+## E-Commerce Project
 
 Technologies Used :
 
@@ -11,3 +11,5 @@ Technologies Used :
 #React-Router
 #Context API
 #Apollo
+#PWA
+Use VPN If you are connecting from Iran Ips(due to firebase blocking the ip)
