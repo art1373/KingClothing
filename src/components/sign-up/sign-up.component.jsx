@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Swal from 'sweetalert2';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
@@ -26,7 +27,12 @@ class SignUp extends React.Component {
     const { displayName, email, password, confirmPassword } = this.state;
 
     if (password !== confirmPassword) {
-      alert("passwords don't match");
+      Swal.fire({
+        type: 'error',
+        title: 'Oops...',
+        text: "Passwords do not match",
+      })
+      
       return;
     }
 
