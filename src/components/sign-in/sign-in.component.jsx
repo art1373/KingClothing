@@ -6,11 +6,7 @@ import CustomButton from "../custom-button/custom-button.component";
 
 import { googleSignInStart,  emailSignInStart } from "../../redux/user/user.actions";
 
-import {
-  SignInContainer,
-  SignInTitle,
-  ButtonsBarContainer
-} from "./sign-in.styles";
+import {  SignInContainer,  SignInTitle,  ButtonsBarContainer } from "./sign-in.styles";
 
 const SignIn = ({ emailSignInStart, googleSignInStart }) => {
   const [userCredentials, setCredentials] = useState({
