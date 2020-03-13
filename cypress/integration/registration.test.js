@@ -16,6 +16,7 @@ describe("registeration", () => {
       .type(user.password)
       .findByText("SIGN UP")
       .click()
-      .findByText("SIGN OUT");
+      .findByText("SIGN OUT")
+      .should("have.text", "SIGN OUT");
   });
 });
