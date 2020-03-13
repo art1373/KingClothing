@@ -20,8 +20,11 @@
     "sweetalert2": "^8.16.1"
   },
   "devDependencies": {
+    "@testing-library/cypress": "^5.3.1",
     "cypress": "^4.1.0",
-    "react-scripts": "3.0.0"
+    "eslint-plugin-cypress": "^2.10.3",
+    "react-scripts": "3.0.0",
+    "test-data-bot": "^0.8.0"
   },
   "resolutions": {
     "babel-jest": "24.7.1"
