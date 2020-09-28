@@ -3,15 +3,19 @@ import Swal from "sweetalert2";
 
 import StripeCheckout from "react-stripe-checkout";
 import { clearCart } from "../../redux/cart/cart.actions";
-import { connect } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
-const StripeCheckoutButton = ({ price, paySuccess }) => {
+const StripeCheckoutButton = ({ price }) => {
+  const dispatch = useDispatch();
+  const history = useHistory();
   const priceForStripe = price * 100;
   const publishableKey = "pk_test_QdwbCwJOzw56vSwuGFOi100W00DIj30Q9P";
-  const onToken = token => {
+  const onToken = (token) => {
     console.log(token);
     Swal.fire("Payment successful", "Thank You for Your Purchase", "success");
-    paySuccess();
+    dispatch(clearCart());
+    history.replace("/");
   };
 
   return (
@@ -29,8 +33,5 @@ const StripeCheckoutButton = ({ price, paySuccess }) => {
     />
   );
 };
-const mapDispatchToProps = dispatch => ({
-  paySuccess: () => dispatch(clearCart())
-});
 
-export default connect(null, mapDispatchToProps)(StripeCheckoutButton);
+export default StripeCheckoutButton;
